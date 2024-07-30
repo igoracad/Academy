@@ -31,9 +31,7 @@ class MainActivity : AppCompatActivity() {
             putExtra(AlarmClock.EXTRA_HOUR, hour)
             putExtra(AlarmClock.EXTRA_MINUTES, minutes)
         }
-        //if (intent.resolveActivity(packageManager) != null) {
         startActivity(intent)
-        //}
     }
 
 
