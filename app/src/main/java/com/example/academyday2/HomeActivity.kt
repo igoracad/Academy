@@ -2,25 +2,27 @@ package com.example.academyday2
 
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.enableEdgeToEdge
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 
 class HomeActivity : AppCompatActivity() {
     var TAG: String = HomeActivity::class.java.simpleName
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_home)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        Log.i(TAG, "created --egg-- memory is being allocated")
+
+        //getintent which started this activity
+        val dataReceived = intent.extras!!.getString("mykey")
+
+
+        //from the intent i get extras -- mykey
+        //set it on a textview
+        val homeView : TextView = findViewById(R.id.tvHome)
+        homeView.text = dataReceived
     }
 
     override fun onStart() {

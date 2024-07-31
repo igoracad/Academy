@@ -1,9 +1,12 @@
 package com.example.academyday2
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -19,6 +22,25 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    fun clickHandler(view: View) {
+        // EditText nameEdittext = findViewById(R.id.etName)
+        var nameEditText : EditText = findViewById(R.id.etName)
+        var mainTextView : TextView = findViewById(R.id.tvMain)
+
+        var data = nameEditText.text.toString();
+        mainTextView.setText(data)
+
+        var hIntention = Intent(this,HomeActivity::class.java)
+        hIntention.putExtra("mykey",data)
+        startActivity(hIntention)
+
+    }
+
+    fun openDialer(view: View) {
+        var dialerIntention = Intent(Intent.ACTION_DIAL, Uri.parse("tel:12345678"))
+        startActivity(dialerIntention)
     }
 
     fun setAlarm(view: View) {
