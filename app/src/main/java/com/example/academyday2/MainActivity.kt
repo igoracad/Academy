@@ -56,5 +56,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun openCalendar(view: View) {
+        val intent = Intent("cognizant.portugal.calendar")
+        startActivity(intent)
+    }
+
 
 }
