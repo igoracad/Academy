@@ -1,5 +1,6 @@
 package com.example.academyday2
 
+import android.content.ComponentName
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -22,6 +23,12 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        // Trigger custom broadcast for testing
+        val testIntent = Intent("com.example.academyday2.TEST_ACTION")
+        testIntent.putExtra(Intent.EXTRA_PHONE_NUMBER, "1234567890")
+        sendBroadcast(testIntent)
     }
 
     fun clickHandler(view: View) {
@@ -59,6 +66,12 @@ class MainActivity : AppCompatActivity() {
     fun openCalendar(view: View) {
         val intent = Intent("cognizant.portugal.calendar")
         startActivity(intent)
+    }
+
+    fun sendFlightBroadCast(view: View) {
+        var intent = Intent("ihave.flight")
+        intent.setComponent(ComponentName("com.example.secondcognizantapp", "com.example.secondcognizantapp.FlightReceiver"))
+        sendBroadcast(intent)
     }
 
 
