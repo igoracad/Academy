@@ -86,4 +86,45 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="73dp" />
 
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:text="start"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnStop"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="61dp"
+        android:text="stop"
+        app:layout_constraintStart_toEndOf="@+id/btnStart"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <Button
+        android:id="@+id/btnBind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="45dp"
+        android:text="bind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnStop"
+        app:layout_constraintTop_toTopOf="@+id/btnStop" />
+
+    <Button
+        android:id="@+id/btnUnbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="5dp"
+        android:text="unbind"
+        app:layout_constraintEnd_toEndOf="@+id/btnBind"
+        app:layout_constraintTop_toBottomOf="@+id/btnBind" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

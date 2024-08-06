@@ -4,6 +4,11 @@ plugins {
 }
 
 android {
+
+    buildFeatures {
+        viewBinding = true
+    }
+
     namespace = "com.example.academyday2"
     compileSdk = 34
 
