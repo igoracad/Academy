@@ -127,4 +127,24 @@
         app:layout_constraintEnd_toEndOf="@+id/btnBind"
         app:layout_constraintTop_toBottomOf="@+id/btnBind" />
 
+    <Button
+        android:id="@+id/btnJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Job"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
+
+    <Button
+        android:id="@+id/btnUnjob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UnJob"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnUnbind"
+        app:layout_constraintStart_toEndOf="@+id/btnJob"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart"
+ />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
