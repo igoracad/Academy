@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -95,12 +96,14 @@ class MainActivity : AppCompatActivity() {
     fun scheduleJob() {
         mScheduler = getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
 
-        val serviceName = ComponentName(packageName, MyService::class.java.name)
+        val serviceName = ComponentName(packageName, NotificationJobService::class.java.name)
         val builder = JobInfo.Builder(0, serviceName)
             .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
 
         val myJobInfo = builder.build()
         mScheduler!!.schedule(myJobInfo)
+
+        Log.i("job","----------------------> CREATED <----------------------")
     }
 
     fun cancelJobs() {

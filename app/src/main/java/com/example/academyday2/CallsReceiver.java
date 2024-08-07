@@ -12,11 +12,9 @@ public class CallsReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (Intent.ACTION_NEW_OUTGOING_CALL.equals(intent.getAction())) {
-            String phoneNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
-            Log.i(TAG, "Outgoing call to: " + phoneNumber);
-        } else {
-            Log.i(TAG, "Received unknown action: " + intent.getAction());
-        }
+
+        String phoneNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
+        Log.i(TAG, "Outgoing call to: " + phoneNumber);
+
     }
 }
