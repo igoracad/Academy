@@ -13,6 +13,7 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -64,6 +65,11 @@ class MainActivity : AppCompatActivity() {
             bindService(serviceIntent,mConnection, BIND_AUTO_CREATE)
         }
 
+        binding.btnUnbind.setOnClickListener {
+            // stopService(serviceIntent)
+            unbindService(mConnection)
+        }
+
         binding.btnJob.setOnClickListener {
             scheduleJob()
         }
@@ -77,9 +83,9 @@ class MainActivity : AppCompatActivity() {
         override fun onServiceConnected(name: ComponentName?, localBinder: IBinder?) {
             //var myService = MyService()
             val binder = localBinder as MyService.LocalBinder
-            var myService =   binder.getMyService()
+            var myService = binder.myService
             var soccerScore = myService.latestScore()
-            Log.i(TAG,"score is--"+soccerScore)
+            Log.i(TAG, "score is--$soccerScore")
             var sum = myService.add(10,20)
 
             Log.i(TAG,"sum is--"+sum)
@@ -99,6 +105,8 @@ class MainActivity : AppCompatActivity() {
         val serviceName = ComponentName(packageName, NotificationJobService::class.java.name)
         val builder = JobInfo.Builder(0, serviceName)
             .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+            .setRequiresDeviceIdle(true)
+            .setRequiresCharging(false);
 
         val myJobInfo = builder.build()
         mScheduler!!.schedule(myJobInfo)
@@ -110,7 +118,7 @@ class MainActivity : AppCompatActivity() {
         if (mScheduler != null){
             mScheduler!!.cancelAll()
             mScheduler = null
-            //Toast.makeText(this, R.string.jobs_canceled, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "jobs canceled", Toast.LENGTH_SHORT).show();
         }
     }
 

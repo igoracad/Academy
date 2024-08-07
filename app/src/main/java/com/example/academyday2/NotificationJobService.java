@@ -17,7 +17,7 @@ public class NotificationJobService extends JobService {
                         PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationManager manager =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel")
                 .setContentTitle("title job service")
                 .setContentText("text job is running")
                 .setContentIntent(contentPendingIntent)
