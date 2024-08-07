@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
+import android.os.IInterface;
 
 public class MyService extends Service {
 
@@ -17,6 +18,13 @@ public class MyService extends Service {
             return MyService.this;
         }
     }
+
+    private final IAddListener aidlBinder = new IAddListener.Stub() {
+        @Override
+        public int add(int a, int b) {
+            return a + b;
+        }
+    };
 
     @Override
     public void onCreate() {
@@ -50,6 +58,6 @@ public class MyService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         Log.i(TAG, "some activity is trying to bind to this service");
-        return localBinder;
+        return (IBinder) aidlBinder;
     }
 }
