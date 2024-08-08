@@ -25,8 +25,9 @@ public interface ItemDao {
     void delete(Item item);
 
     /*
+    //---------------- KOTLIN way of doing it ------------------
     @Query("SELECT * from item WHERE id = :itemId")
-    LiveData<Item> getItem(int itemId);
+    Flow<Item> getItem(int itemId);
     */
 
 

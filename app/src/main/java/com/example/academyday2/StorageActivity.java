@@ -92,12 +92,10 @@ public class StorageActivity extends AppCompatActivity {
                 }*/
 
                 //---------------- JAVA way of doing it ------------------
-                binding.btnGet.setOnClickListener(i -> {
-                    Executor executor = Executors.newSingleThreadExecutor();
-                    executor.execute(() -> {
-                        final Item item = dao.getItem(21);
-                        runOnUiThread(() -> binding.txtData.setText(item.toString()));
-                    });
+                Executor executor = Executors.newSingleThreadExecutor();
+                executor.execute(() -> {
+                    final Item item = dao.getItem(21);
+                    runOnUiThread(() -> binding.txtData.setText(item.toString()));
                 });
             }
         });
