@@ -3,31 +3,17 @@ package com.example.academyday2;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.provider.CallLog;
 import android.view.View;
 import android.widget.SimpleCursorAdapter;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.lifecycle.LiveData;
-import androidx.room.Dao;
-
 import com.example.academyday2.database.Item;
 import com.example.academyday2.database.ItemDao;
 import com.example.academyday2.database.ItemRoomDatabase;
 import com.example.academyday2.databinding.ActivityStorageBinding;
-
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import kotlinx.coroutines.CoroutineScope;
-import kotlinx.coroutines.flow.Flow;
 
 public class StorageActivity extends AppCompatActivity {
 
